@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MaterialApp(
+    home: MyApp(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({ Key? key }) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Calculadora de IMC",
-      home: Column(
-        children: [
-          _getText("Calculadora de IMC", 30, Colors.white),
-          _getText("Calculadora de IMC", 25, Colors.white),
-          _getText("Calculadora de IMC", 20, Colors.white),
-          _getText("Calculadora de IMC", 15, Colors.white),
-          _getText("Calculadora de IMC", 10, Colors.white),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Calculadora de IMC"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
     );
   }
-}
-
-//Função que retorna o widget de texto que se repete
-Widget _getText(String _text, double _size, Color _color) {
-  return Text(
-    _text,
-    style: TextStyle(
-      color: _color,
-      fontSize: _size,
-    )
-  );
 }
