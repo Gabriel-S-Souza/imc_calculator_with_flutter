@@ -23,6 +23,24 @@ class _MyAppState extends State<MyApp> {
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
       ),
+      body: Column(
+        children: const <Widget>[
+          Icon(
+            Icons.sports_gymnastics,
+            size: 120,
+            color: Colors.grey,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: "Peso (Kg)",
+              labelStyle: TextStyle(
+                color: Colors.deepPurpleAccent,
+              )
+            ),
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
     );
   }
 }
