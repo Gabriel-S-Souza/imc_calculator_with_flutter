@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//Função que retorna o widget de texto que se repete
+//Função que retorna o widget de texto
 Widget _getText(String _text, double _size, Color _color) {
   return Text(_text,
       style: TextStyle(
@@ -9,8 +9,3 @@ Widget _getText(String _text, double _size, Color _color) {
       ));
 }
 
-double calculaImc(double peso, double altura) {
-  final double imc;
-  imc = peso / (altura * altura);
-  return imc;
-}

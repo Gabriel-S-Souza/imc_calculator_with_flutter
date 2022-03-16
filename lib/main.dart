@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:calculadora_de_imc/methods.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +18,13 @@ class _MyAppState extends State<MyApp> {
   //Definindo abaixo os controladores para os inputs
   final TextEditingController _pesoController = TextEditingController();
   final TextEditingController _alturaController = TextEditingController();
-  double? imc;
+  double? _imc;
+
+  double _calculateImc(double peso, double altura) {
+    final double imc;
+    imc = peso / (altura * altura);
+    return double.parse((imc).toStringAsFixed(2));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,13 +77,15 @@ class _MyAppState extends State<MyApp> {
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      if(_pesoController.text.isNotEmpty && _alturaController.text.isNotEmpty) {
-                        imc = calculaImc(double.parse(_pesoController.text), double.parse(_alturaController.text));
+                      if (_pesoController.text.isNotEmpty &&
+                          _alturaController.text.isNotEmpty) {
+                        _imc = _calculateImc(double.parse(_pesoController.text),
+                            double.parse(_alturaController.text));
                         print("setState");
                       } else {
                         print("String Vazia");
+                        _imc = null;
                       }
-
                     });
                   },
                   style: ElevatedButton.styleFrom(
@@ -97,13 +102,22 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             Text(
-              imc != null ? "$imc" : "",
+              _imc != null ? "Seu índice de massa corporal:" : "",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Color.fromARGB(255, 07, 0, 77),
                 fontSize: 25,
               ),
-            )
+            ),
+            Text(
+              _imc != null ? "$_imc" : "",
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.deepPurpleAccent,
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
       ),
