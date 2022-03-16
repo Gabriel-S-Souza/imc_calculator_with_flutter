@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                         imc = calculaImc(double.parse(_pesoController.text), double.parse(_alturaController.text));
                         print("setState");
                       } else {
-                        print("estring Vazia");
+                        print("String Vazia");
                       }
 
                     });
