@@ -46,8 +46,8 @@ class _HomePageState extends State<HomePage> {
             label: "Calcular IMC"
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.developer_board),
-            label: "Tabela de valores"
+            icon: Icon(Icons.info),
+            label: "Sobre o IMC"
           ),
         ],
       ),
