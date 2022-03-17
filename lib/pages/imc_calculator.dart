@@ -80,7 +80,6 @@ class ImcCalculatorState extends State<ImcCalculator> {
                         tooltip: "Limpar campos",
                         onPressed: () {
                           _cleanFields();
-                          print("object");
                         }),
                   ),
                 ],
