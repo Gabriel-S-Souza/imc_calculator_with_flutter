@@ -5,6 +5,7 @@ class MyAppState extends State<MyApp> {
   //Definindo abaixo os controladores para os inputs
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
+
   final String _infoTextLabel = "Seu índice de massa corporal:";
   String? _infoTextImc;
   double? _imc;
@@ -15,28 +16,31 @@ class MyAppState extends State<MyApp> {
     return double.parse((imc).toStringAsFixed(2));
   }
 
-  String? _getCategoryByImc(double imc) {
+  void _getCategoryByImc(double imc) {
     if (imc < 17) {
-      return "Muito abiaxo do peso";
+      _infoTextImc = "Muito abaixo do peso";
+    } else if (imc >= 17 && imc < 18.49) {
+      _infoTextImc = "Abiaxo do peso";
+    } else if (imc >= 18.49 && imc < 24.99) {
+      _infoTextImc = "Peso normal";
+    } else if (imc >= 24.99 && imc < 29.99) {
+      _infoTextImc = "Acima do peso";
+    } else if (imc >= 29.99 && imc < 34.99) {
+      _infoTextImc = "Obesidade I";
+    } else if (imc >= 34.99 && imc < 39.99) {
+      _infoTextImc = "Obesidade II (severa)";
+    } else if (imc > 39.99) {
+      _infoTextImc = "Obesidade III (mórbida)";
     }
-    if (imc > 17 && imc <= 18.49) {
-      return "Abiaxo do peso";
-    }
-    if (imc > 18.49 && imc <= 24.99) {
-      return "Peso normal";
-    }
-    if (imc > 24.99 && imc <= 29.99) {
-      return "Acima do peso";
-    }
-    if (imc > 29.99 && imc <= 34.99) {
-      return "Obesidade I";
-    }
-    if (imc > 34.99 && imc <= 39.99) {
-      return "Obesidade II (severa)";
-    }
-    if (imc > 39.99) {
-      return "Obesidade III (mórbida)";
-    }
+  }
+
+  void _cleanFields() {
+    _weightController.text = "";
+    _heightController.text = "";
+    setState(() {
+      _imc = null;
+      _infoTextImc = null;
+    });
   }
 
   @override
@@ -46,6 +50,14 @@ class MyAppState extends State<MyApp> {
         title: const Text("Calculadora de IMC"),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            color: const Color.fromARGB(130, 255, 255, 255),
+            tooltip: 'Limpar campos',
+            onPressed: _cleanFields,
+          ),
+        ],
       ),
       body: Padding(
         //Adiciona um Widget com o padding especificado e insere o Column como filho
@@ -97,9 +109,8 @@ class MyAppState extends State<MyApp> {
                                 _weightController.text.replaceAll(',', '.')),
                             double.parse(
                                 _heightController.text.replaceAll(',', '.')));
-                        print("setState");
+                        _getCategoryByImc(_imc!);
                       } else {
-                        print("String Vazia");
                         _imc = null;
                       }
                     });
@@ -121,7 +132,7 @@ class MyAppState extends State<MyApp> {
               _imc != null ? _infoTextLabel : "",
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color.fromARGB(255, 07, 0, 77),
+                color: Colors.black,
                 fontSize: 25,
               ),
             ),
@@ -129,8 +140,17 @@ class MyAppState extends State<MyApp> {
               _imc != null ? "$_imc" : "",
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Colors.deepPurpleAccent,
+                color: Colors.deepPurple,
                 fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              _imc != null ? "\u{24D8} $_infoTextImc" : "",
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.deepPurpleAccent,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
