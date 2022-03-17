@@ -1,7 +1,13 @@
-import 'package:calculadora_de_imc/my_app.dart';
 import 'package:flutter/material.dart';
 
-class MyAppState extends State<MyApp> {
+class ImcCalculator extends StatefulWidget {
+  const ImcCalculator({Key? key}) : super(key: key);
+
+  @override
+  State<ImcCalculator> createState() => ImcCalculatorState();
+}
+
+class ImcCalculatorState extends State<ImcCalculator> {
   //Definindo abaixo os controladores para os inputs
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
