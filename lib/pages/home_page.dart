@@ -22,9 +22,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void setCurrentPage(page) {
+    setState(() => currentPage = page);
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Calculadora de IMC"),
@@ -37,19 +40,19 @@ class _HomePageState extends State<HomePage> {
           ImcCalculator(),
           ImcInfoPage(),
         ],
+        onPageChanged: setCurrentPage,
       ),
       bottomNavigationBar: BottomNavigationBar(
-
+        currentIndex: currentPage,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.calculate),
-            label: "Calcular IMC"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: "Sobre o IMC"
-          ),
+              icon: Icon(Icons.calculate), label: "Calcular IMC"),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: "Sobre o IMC"),
         ],
+        onTap: (page) {
+          pageController.animateToPage(page,
+              duration: const Duration(milliseconds: 450), curve: Curves.ease);
+        },
       ),
     );
   }
