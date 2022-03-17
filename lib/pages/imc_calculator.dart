@@ -51,19 +51,6 @@ class ImcCalculatorState extends State<ImcCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Calculadora de IMC"),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            color: const Color.fromARGB(130, 255, 255, 255),
-            tooltip: 'Limpar campos',
-            onPressed: _cleanFields,
-          ),
-        ],
-      ),
       body: Padding(
         //Adiciona um Widget com o padding especificado e insere o Column como filho
         padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
@@ -75,10 +62,27 @@ class ImcCalculatorState extends State<ImcCalculator> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Icon(
-                Icons.sports_gymnastics,
-                size: 120,
-                color: Colors.grey,
+              Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  const Icon(
+                    Icons.sports_gymnastics,
+                    size: 120,
+                    color: Colors.grey,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: IconButton(
+                        iconSize: 32,
+                        icon: const Icon(Icons.refresh),
+                        color: Colors.black26,
+                        onPressed: () {
+                          _cleanFields;
+                          print("object");
+                        }),
+                  ),
+                ],
               ),
               TextField(
                 controller: _weightController,
@@ -130,9 +134,11 @@ class ImcCalculatorState extends State<ImcCalculator> {
                                 ),
                               ),
                               content: SizedBox(
-                                height: (MediaQuery.of(context).size.height) / 8,
+                                height:
+                                    (MediaQuery.of(context).size.height) / 8,
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
                                       "$_imc",
@@ -148,7 +154,6 @@ class ImcCalculatorState extends State<ImcCalculator> {
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
-
                                       ),
                                     ),
                                   ],
@@ -163,9 +168,10 @@ class ImcCalculatorState extends State<ImcCalculator> {
                                     "OK",
                                   ),
                                   style: ElevatedButton.styleFrom(
-                                      primary: Colors.deepPurpleAccent, //cor do fundo
-                                      // onPrimary:
-                                    ),
+                                    primary:
+                                        Colors.deepPurpleAccent, //cor do fundo
+                                    // onPrimary:
+                                  ),
                                 ),
                               ],
                             );
@@ -187,19 +193,6 @@ class ImcCalculatorState extends State<ImcCalculator> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calculate),
-            label: "Calcular IMC"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.developer_board),
-            label: "Tabela de valores"
-          ),
-        ],
       ),
     );
   }

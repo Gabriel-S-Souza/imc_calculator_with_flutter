@@ -24,12 +24,31 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Calculadora de IMC"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurpleAccent,
+      ),
       body: PageView(
         controller: pageController,
         children: const <Widget>[
           ImcCalculator(),
           ImcInfoPage(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calculate),
+            label: "Calcular IMC"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.developer_board),
+            label: "Tabela de valores"
+          ),
         ],
       ),
     );
