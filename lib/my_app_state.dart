@@ -60,100 +60,126 @@ class MyAppState extends State<MyApp> {
       ),
       body: Padding(
         //Adiciona um Widget com o padding especificado e insere o Column como filho
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        child: Column(
-          //Essa configuração abaixo faz com que todos os filhos sejam
-          //esticados até os limites do pai no eixo cruzado:
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Icon(
-              Icons.sports_gymnastics,
-              size: 120,
-              color: Colors.grey,
-            ),
-            TextField(
-              controller: _weightController,
-              decoration: const InputDecoration(
-                  labelText: "Peso (Kg)",
-                  labelStyle: TextStyle(
-                    color: Colors.deepPurple,
-                  )),
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _heightController,
-              decoration: const InputDecoration(
-                  labelText: "Altura (m)",
-                  labelStyle: TextStyle(
-                    color: Colors.deepPurple,
-                  )),
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 10,
-                bottom: 10,
+        padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
+        child: SizedBox(
+          height: (MediaQuery.of(context).size.height) / 1.5,
+          child: Column(
+            //Essa configuração abaixo faz com que todos os filhos sejam
+            //esticados até os limites do pai no eixo cruzado:
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Icon(
+                Icons.sports_gymnastics,
+                size: 120,
+                color: Colors.grey,
               ),
-              child: SizedBox(
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
+              TextField(
+                controller: _weightController,
+                decoration: const InputDecoration(
+                    labelText: "Peso (Kg)",
+                    labelStyle: TextStyle(
+                      color: Colors.deepPurple,
+                    )),
+                keyboardType: TextInputType.number,
+              ),
+              TextField(
+                controller: _heightController,
+                decoration: const InputDecoration(
+                    labelText: "Altura (m)",
+                    labelStyle: TextStyle(
+                      color: Colors.deepPurple,
+                    )),
+                keyboardType: TextInputType.number,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24),
+                child: SizedBox(
+                  height: 48,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.deepPurpleAccent, //cor do fundo
+                      // onPrimary:
+                    ),
+                    child: const Text(
+                      "Calcular",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    onPressed: () {
                       if (_weightController.text.isNotEmpty &&
                           _heightController.text.isNotEmpty) {
-                        _imc = _calculateImc(
-                            double.parse(
-                                _weightController.text.replaceAll(',', '.')),
-                            double.parse(
-                                _heightController.text.replaceAll(',', '.')));
-                        _getCategoryByImc(_imc!);
-                      } else {
-                        _imc = null;
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text(
+                                "Seu índice de massa corporal:",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              content: SizedBox(
+                                height: (MediaQuery.of(context).size.height) / 8,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      "$_imc",
+                                      style: const TextStyle(
+                                        // color: Color(0xFF1B998B),
+                                        color: Colors.deepPurpleAccent,
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      "\u{24D8} $_infoTextImc",
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text(
+                                    "OK",
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.deepPurpleAccent, //cor do fundo
+                                      // onPrimary:
+                                    ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        setState(() {
+                          _imc = _calculateImc(
+                              double.parse(
+                                  _weightController.text.replaceAll(',', '.')),
+                              double.parse(
+                                  _heightController.text.replaceAll(',', '.')));
+                          _getCategoryByImc(_imc!);
+                        });
                       }
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.deepPurpleAccent, //cor do fundo
-                    // onPrimary:
-                  ),
-                  child: const Text(
-                    "Calcular",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
+                    },
                   ),
                 ),
               ),
-            ),
-            Text(
-              _imc != null ? "Seu índice de massa corporal:" : "",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-              ),
-            ),
-            Text(
-              _imc != null ? "$_imc" : "",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.deepPurple,
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              _imc != null ? "\u{24D8} $_infoTextImc" : "",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.deepPurpleAccent,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
