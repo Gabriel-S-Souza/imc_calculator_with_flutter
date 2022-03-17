@@ -182,6 +182,19 @@ class MyAppState extends State<MyApp> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calculate),
+            label: "Calcular IMC"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.developer_board),
+            label: "Tabela de valores"
+          ),
+        ],
+      ),
     );
   }
 }
