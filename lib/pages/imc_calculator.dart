@@ -77,8 +77,9 @@ class ImcCalculatorState extends State<ImcCalculator> {
                         iconSize: 32,
                         icon: const Icon(Icons.refresh),
                         color: Colors.black26,
+                        tooltip: "Limpar campos",
                         onPressed: () {
-                          _cleanFields;
+                          _cleanFields();
                           print("object");
                         }),
                   ),
