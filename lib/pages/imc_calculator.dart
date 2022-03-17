@@ -68,7 +68,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
                   const Icon(
                     Icons.sports_gymnastics,
                     size: 120,
-                    color: Colors.grey,
+                    color: Colors.black54,
                   ),
                   Positioned(
                     bottom: 0,
