@@ -6,7 +6,6 @@ class MyAppState extends State<MyApp> {
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
 
-  final String _infoTextLabel = "Seu índice de massa corporal:";
   String? _infoTextImc;
   double? _imc;
 
@@ -77,7 +76,7 @@ class MyAppState extends State<MyApp> {
               decoration: const InputDecoration(
                   labelText: "Peso (Kg)",
                   labelStyle: TextStyle(
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.deepPurple,
                   )),
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
@@ -87,7 +86,7 @@ class MyAppState extends State<MyApp> {
               decoration: const InputDecoration(
                   labelText: "Altura (m)",
                   labelStyle: TextStyle(
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.deepPurple,
                   )),
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
@@ -129,7 +128,7 @@ class MyAppState extends State<MyApp> {
               ),
             ),
             Text(
-              _imc != null ? _infoTextLabel : "",
+              _imc != null ? "Seu índice de massa corporal:" : "",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.black,
