@@ -50,14 +50,14 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 24, bottom: 24),
+                padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
                   "assets/images/exercicio-fisico.jpg",
                   width: MediaQuery.of(context).size.width,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 24),
+                padding: const EdgeInsets.only(bottom: 28),
                 child: Text(
                   getTextContents("firstFragment"),
                   textAlign: TextAlign.justify,
@@ -88,7 +88,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 24, bottom: 24),
+                padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
                   "assets/images/tabela-imc.jpg",
                   width: MediaQuery.of(context).size.width,
