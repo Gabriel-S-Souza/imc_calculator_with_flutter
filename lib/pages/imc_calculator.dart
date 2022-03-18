@@ -120,6 +120,14 @@ class ImcCalculatorState extends State<ImcCalculator> {
                     onPressed: () {
                       if (_weightController.text.isNotEmpty &&
                           _heightController.text.isNotEmpty) {
+                        setState(() {
+                          _imc = _calculateImc(
+                              double.parse(
+                                  _weightController.text.replaceAll(',', '.')),
+                              double.parse(
+                                  _heightController.text.replaceAll(',', '.')));
+                          _getCategoryByImc(_imc!);
+                        });
                         showDialog(
                           context: context,
                           barrierDismissible: false,
@@ -177,14 +185,6 @@ class ImcCalculatorState extends State<ImcCalculator> {
                             );
                           },
                         );
-                        setState(() {
-                          _imc = _calculateImc(
-                              double.parse(
-                                  _weightController.text.replaceAll(',', '.')),
-                              double.parse(
-                                  _heightController.text.replaceAll(',', '.')));
-                          _getCategoryByImc(_imc!);
-                        });
                       }
                     },
                   ),
