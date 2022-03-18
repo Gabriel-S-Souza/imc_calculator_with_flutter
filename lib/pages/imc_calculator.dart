@@ -65,6 +65,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
               Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
+                  //TODO: Substituir e reposicionar icone
                   Icon(
                     Icons.sports_gymnastics,
                     size: 100,
