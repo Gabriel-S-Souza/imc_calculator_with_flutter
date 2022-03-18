@@ -60,14 +60,17 @@ class ImcCalculatorState extends State<ImcCalculator> {
             //Essa configuração abaixo faz com que todos os filhos sejam
             //esticados até os limites do pai no eixo cruzado:
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Stack(
-                alignment: AlignmentDirectional.center,
+                alignment: AlignmentDirectional.topCenter,
                 children: [
                   //TODO: Substituir e reposicionar icone
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 24),
+                    padding: EdgeInsets.only(
+                      top: 60, 
+                      bottom: MediaQuery.of(context).size.height/12,
+                      ),
                     child: Image.asset(
                       "assets/images/imc-men.png",
                       width: 80,
