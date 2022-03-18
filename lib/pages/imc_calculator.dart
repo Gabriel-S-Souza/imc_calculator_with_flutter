@@ -86,109 +86,114 @@ class ImcCalculatorState extends State<ImcCalculator> {
                 ],
               ),
               TextField(
+                cursorColor: Colors.deepPurple,
+                style: const TextStyle(height: 0.6),
                 controller: _weightController,
                 decoration: const InputDecoration(
-                    labelText: "Peso (Kg)",
-                    labelStyle: TextStyle(
-                      color: Colors.deepPurple,
-                    )),
+                  border: OutlineInputBorder(),
+                  labelText: "Peso (Kg)",
+                  labelStyle: TextStyle(
+                    color: Colors.deepPurple,
+                  )),
                 keyboardType: TextInputType.number,
               ),
-              TextField(
-                controller: _heightController,
-                decoration: const InputDecoration(
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 24),
+                child: TextField(
+                  style: const TextStyle(height: 0.6),
+                  controller: _heightController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                     labelText: "Altura (m)",
                     labelStyle: TextStyle(
                       color: Colors.deepPurple,
                     )),
-                keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.number,
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 24),
-                child: SizedBox(
-                  height: 48,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.deepPurpleAccent, //cor do fundo
-                      // onPrimary:
-                    ),
-                    child: const Text(
-                      "Calcular",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    onPressed: () {
-                      if (_weightController.text.isNotEmpty &&
-                          _heightController.text.isNotEmpty) {
-                        setState(() {
-                          _imc = _calculateImc(
-                              double.parse(
-                                  _weightController.text.replaceAll(',', '.')),
-                              double.parse(
-                                  _heightController.text.replaceAll(',', '.')));
-                          _getCategoryByImc(_imc!);
-                        });
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text(
-                                "Seu índice de massa corporal:",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              content: SizedBox(
-                                height:
-                                    (MediaQuery.of(context).size.height) / 8,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text(
-                                      "$_imc",
-                                      style: const TextStyle(
-                                        // color: Color(0xFF1B998B),
-                                        color: Colors.deepPurpleAccent,
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      "\u{24D8} $_infoTextImc",
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              actions: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text(
-                                    "OK",
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    primary:
-                                        Colors.deepPurpleAccent, //cor do fundo
-                                    // onPrimary:
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    },
+              SizedBox(
+                height: 48,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.deepPurpleAccent, //cor do fundo
+                    // onPrimary:
                   ),
+                  child: const Text(
+                    "Calcular",
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (_weightController.text.isNotEmpty &&
+                        _heightController.text.isNotEmpty) {
+                      setState(() {
+                        _imc = _calculateImc(
+                            double.parse(
+                                _weightController.text.replaceAll(',', '.')),
+                            double.parse(
+                                _heightController.text.replaceAll(',', '.')));
+                        _getCategoryByImc(_imc!);
+                      });
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text(
+                              "Seu índice de massa corporal:",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                              ),
+                            ),
+                            content: SizedBox(
+                              height:
+                                  (MediaQuery.of(context).size.height) / 8,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "$_imc",
+                                    style: const TextStyle(
+                                      // color: Color(0xFF1B998B),
+                                      color: Colors.deepPurpleAccent,
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    "\u{24D8} $_infoTextImc",
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text(
+                                  "OK",
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  primary:
+                                      Colors.deepPurpleAccent, //cor do fundo
+                                  // onPrimary:
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  },
                 ),
               ),
             ],
