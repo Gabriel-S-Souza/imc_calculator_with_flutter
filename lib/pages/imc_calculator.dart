@@ -66,13 +66,15 @@ class ImcCalculatorState extends State<ImcCalculator> {
                 alignment: AlignmentDirectional.center,
                 children: [
                   //TODO: Substituir e reposicionar icone
-                  Icon(
-                    Icons.sports_gymnastics,
-                    size: 100,
-                    color: Colors.grey[800],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: Image.asset(
+                      "assets/images/imc-men.png",
+                      width: 100,
+                    ),
                   ),
                   Positioned(
-                    bottom: 0,
+                    bottom: 8,
                     right: 0,
                     child: IconButton(
                         iconSize: 32,
