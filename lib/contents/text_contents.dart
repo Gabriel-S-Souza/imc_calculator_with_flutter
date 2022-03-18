@@ -5,8 +5,8 @@ String getTextContents(String key) {
     "firstFragment":
         "Estar dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do peso, e AVC ou infarto, quando se está acima do peso. Assim, é comum os médicos, enfermeiros e nutricionistas avaliem o IMC da pessoa nas consultas de rotina para verificar a possibilidade de doenças que a pessoa pode estar pre-disposta.",
     "secondFragment":
-        "A fórmula do cálculo do IMC deve ser feito usando da seguinte forma: Peso ÷ (altura x altura).",
+        "O cálculo do IMC é feito usando a seguinte formula: Peso ÷ (altura x altura). Confira o que reprenta os valores do IMC na imagem abaixo:",
   };
 
-  return contents[key] ?? "getText falhou";
+  return contents[key] ?? "getTextContent falhou";
 }
