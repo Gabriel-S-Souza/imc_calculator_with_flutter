@@ -44,10 +44,11 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPage,
+        backgroundColor: Colors.deepPurple[50],
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.calculate), label: "Calcular IMC"),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: "Sobre o IMC"),
+              icon: Icon(Icons.calculate), label: "Calcular IMC", tooltip: "Calculadora de IMC"),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: "Sobre o IMC", tooltip: "Mais sobre o IMC"),
         ],
         onTap: (page) {
           pageController.animateToPage(page,

@@ -65,10 +65,10 @@ class ImcCalculatorState extends State<ImcCalculator> {
               Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.sports_gymnastics,
-                    size: 120,
-                    color: Colors.black54,
+                    size: 100,
+                    color: Colors.grey[800],
                   ),
                   Positioned(
                     bottom: 0,
@@ -76,7 +76,8 @@ class ImcCalculatorState extends State<ImcCalculator> {
                     child: IconButton(
                         iconSize: 32,
                         icon: const Icon(Icons.refresh),
-                        color: Colors.black26,
+                        color: Colors.deepPurple[100],
+                        // color: Colors.black26,
                         tooltip: "Limpar campos",
                         onPressed: () {
                           _cleanFields();
