@@ -70,7 +70,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
                     padding: const EdgeInsets.only(bottom: 24),
                     child: Image.asset(
                       "assets/images/imc-men.png",
-                      width: 100,
+                      width: 80,
                     ),
                   ),
                   Positioned(
@@ -79,8 +79,8 @@ class ImcCalculatorState extends State<ImcCalculator> {
                     child: IconButton(
                         iconSize: 32,
                         icon: const Icon(Icons.refresh),
-                        color: Colors.deepPurple[100],
-                        // color: Colors.black26,
+                        // color: Colors.grey,
+                        color: Colors.black38,
                         tooltip: "Limpar campos",
                         onPressed: () {
                           _cleanFields();
@@ -91,6 +91,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
               TextField(
                 cursorColor: Colors.deepPurple,
                 style: const TextStyle(height: 0.6),
+                cursorHeight: 16,
                 controller: _weightController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -104,6 +105,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
                 padding: const EdgeInsets.only(top: 24, bottom: 24),
                 child: TextField(
                   style: const TextStyle(height: 0.6),
+                  cursorHeight: 16,
                   controller: _heightController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),

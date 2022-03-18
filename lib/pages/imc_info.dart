@@ -88,10 +88,32 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                 ),
               ),
               Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 28),
+                child: Text(
+                  getTextContents("thirdFragment"),
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.grey[800],
+                  ),
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
                   "assets/images/tabela-imc.jpg",
                   width: MediaQuery.of(context).size.width,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 28),
+                child: Text(
+                  getTextContents("fourthFragment"),
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.grey[800],
+                  ),
                 ),
               ),
             ],
