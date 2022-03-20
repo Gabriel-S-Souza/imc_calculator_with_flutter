@@ -1,3 +1,4 @@
+import 'package:calculadora_de_imc/widgets/custom_text_fields.dart';
 import 'package:flutter/material.dart';
 
 class ImcCalculator extends StatefulWidget {
@@ -76,48 +77,15 @@ class ImcCalculatorState extends State<ImcCalculator> {
                       width: 80,
                     ),
                   ),
-                  Positioned(
-                    bottom: 8,
-                    right: 0,
-                    child: IconButton(
-                        iconSize: 32,
-                        icon: const Icon(Icons.refresh),
-                        // color: Colors.grey,
-                        color: Colors.black38,
-                        tooltip: "Limpar campos",
-                        onPressed: () {
-                          _cleanFields();
-                        }),
-                  ),
                 ],
               ),
-              TextField(
-                cursorColor: Colors.deepPurple,
-                style: const TextStyle(height: 0.6),
-                cursorHeight: 16,
+              CustomTextField(
                 controller: _weightController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Peso (Kg)",
-                  labelStyle: TextStyle(
-                    color: Colors.deepPurple,
-                  )),
-                keyboardType: TextInputType.number,
+                label: "Peso (Kg)",
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 24, bottom: 24),
-                child: TextField(
-                  style: const TextStyle(height: 0.6),
-                  cursorHeight: 16,
-                  controller: _heightController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Altura (m)",
-                    labelStyle: TextStyle(
-                      color: Colors.deepPurple,
-                    )),
-                  keyboardType: TextInputType.number,
-                ),
+              CustomTextField(
+                controller: _heightController,
+                label: "Altura (m)",
               ),
               SizedBox(
                 height: 48,
@@ -204,9 +172,17 @@ class ImcCalculatorState extends State<ImcCalculator> {
                   },
                 ),
               ),
+              
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.refresh),
+        tooltip: "Limpar campos",
+        onPressed: () {
+          _cleanFields();
+        },
       ),
     );
   }
