@@ -1,3 +1,4 @@
+import 'package:calculadora_de_imc/widgets/custom_alert_dialog.dart';
 import 'package:calculadora_de_imc/widgets/custom_elevated_buttom.dart';
 import 'package:calculadora_de_imc/widgets/custom_text_fields.dart';
 import 'package:flutter/material.dart';
@@ -103,54 +104,11 @@ class ImcCalculatorState extends State<ImcCalculator> {
                       context: context,
                       barrierDismissible: false,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text(
-                            "Seu índice de massa corporal:",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                            ),
-                          ),
-                      content: SizedBox(
-                        height: (MediaQuery.of(context).size.height) / 8,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "$_imc",
-                              style: const TextStyle(
-                                // color: Color(0xFF1B998B),
-                                color: Colors.deepPurpleAccent,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "\u{24D8} $_infoTextImc",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      actions: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text(
-                            "OK",
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.deepPurpleAccent, //cor do fundo
-                            // onPrimary:
-                            ),
-                          ),
-                        ],
-                      );
+                        return CustomAlertDialog(
+                          title: "Seu Índice de Massa Corporal (IMC)", 
+                          imcResult: _imc!, 
+                          infoTextImc: _infoTextImc!,
+                        );
                     },
                   );
                 }
