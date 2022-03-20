@@ -1,3 +1,4 @@
+import 'package:calculadora_de_imc/widgets/custom_elevated_buttom.dart';
 import 'package:calculadora_de_imc/widgets/custom_text_fields.dart';
 import 'package:flutter/material.dart';
 
@@ -87,96 +88,78 @@ class ImcCalculatorState extends State<ImcCalculator> {
                 controller: _heightController,
                 label: "Altura (m)",
               ),
-              SizedBox(
-                height: 48,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.deepPurpleAccent, //cor do fundo
-                    // onPrimary:
-                  ),
-                  child: const Text(
-                    "Calcular",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                  onPressed: () {
-                    if (_weightController.text.isNotEmpty &&
-                        _heightController.text.isNotEmpty) {
-                      setState(() {
-                        _imc = _calculateImc(
-                            double.parse(
-                                _weightController.text.replaceAll(',', '.')),
-                            double.parse(
-                                _heightController.text.replaceAll(',', '.')));
-                        _getCategoryByImc(_imc!);
-                      });
-                      showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text(
-                              "Seu índice de massa corporal:",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
+              CustomElevatedButtom(
+                title: "Calcular", 
+                onPressed: () {
+                  if (_weightController.text.isNotEmpty &&
+                      _heightController.text.isNotEmpty) {
+                    setState(() {
+                      _imc = _calculateImc(
+                          double.parse(_weightController.text.replaceAll(',', '.')),
+                          double.parse(_heightController.text.replaceAll(',', '.')));
+                      _getCategoryByImc(_imc!);
+                    });
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text(
+                            "Seu índice de massa corporal:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                      content: SizedBox(
+                        height: (MediaQuery.of(context).size.height) / 8,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "$_imc",
+                              style: const TextStyle(
+                                // color: Color(0xFF1B998B),
+                                color: Colors.deepPurpleAccent,
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "\u{24D8} $_infoTextImc",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                               ),
                             ),
-                            content: SizedBox(
-                              height:
-                                  (MediaQuery.of(context).size.height) / 8,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    "$_imc",
-                                    style: const TextStyle(
-                                      // color: Color(0xFF1B998B),
-                                      color: Colors.deepPurpleAccent,
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    "\u{24D8} $_infoTextImc",
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                          ],
+                        ),
+                      ),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text(
+                            "OK",
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.deepPurpleAccent, //cor do fundo
+                            // onPrimary:
                             ),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text(
-                                  "OK",
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary:
-                                      Colors.deepPurpleAccent, //cor do fundo
-                                  // onPrimary:
-                                ),
-                              ),
-                            ],
-                          );
-                        },
+                          ),
+                        ],
                       );
-                    }
-                  },
-                ),
-              ),
-              
-            ],
-          ),
+                    },
+                  );
+                }
+              },
+            )
+          ],
         ),
       ),
+    ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh),
         tooltip: "Limpar campos",
