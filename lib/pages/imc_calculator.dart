@@ -25,20 +25,31 @@ class ImcCalculatorState extends State<ImcCalculator> {
   }
 
   void _getCategoryByImc(double imc) {
-    if (imc < 17) {
-      _infoTextImc = "Muito abaixo do peso";
-    } else if (imc >= 17 && imc < 18.49) {
-      _infoTextImc = "Abiaxo do peso";
-    } else if (imc >= 18.49 && imc < 24.99) {
-      _infoTextImc = "Peso normal";
-    } else if (imc >= 24.99 && imc < 29.99) {
-      _infoTextImc = "Acima do peso";
-    } else if (imc >= 29.99 && imc < 34.99) {
-      _infoTextImc = "Obesidade I";
-    } else if (imc >= 34.99 && imc < 39.99) {
-      _infoTextImc = "Obesidade II (severa)";
-    } else if (imc > 39.99) {
-      _infoTextImc = "Obesidade III (mórbida)";
+    const List<String> category = [
+      "Muito abaixo do peso",
+      "Abaixo do peso",
+      "Peso normal",
+      "Acima do peso",
+      "Obesidade I",
+      "Obesidade II (severa)",
+      "Obesidade III (mórbida)",
+    ];
+    const List<double> limitNumbers = [17, 18.49, 24.99, 29.99, 34.99, 39.99];
+    double smallerLimitNumber = 0;
+
+    for (var i = 0; i < category.length; i++) {
+      if (imc >= smallerLimitNumber) {
+        if (smallerLimitNumber == 39.99)  {
+          _infoTextImc = category[i]; 
+          break;
+        } else if (imc < limitNumbers[i]) {
+          _infoTextImc = category[i];
+          break;
+        }
+        else {
+        smallerLimitNumber = limitNumbers[i];
+        }
+      }
     }
   }
 
@@ -65,21 +76,15 @@ class ImcCalculatorState extends State<ImcCalculator> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Stack(
-                alignment: AlignmentDirectional.topCenter,
-                children: [
-                  //TODO: Substituir e reposicionar icone
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 60, 
-                      bottom: MediaQuery.of(context).size.height/12,
-                      ),
-                    child: Image.asset(
-                      "assets/images/imc-men.png",
-                      width: 80,
-                    ),
-                  ),
-                ],
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 60,
+                  bottom: MediaQuery.of(context).size.height / 12,
+                ),
+                child: Image.asset(
+                  "assets/images/imc-men.png",
+                  height: 80,
+                ),
               ),
               CustomTextField(
                 controller: _weightController,
@@ -90,14 +95,16 @@ class ImcCalculatorState extends State<ImcCalculator> {
                 label: "Altura (m)",
               ),
               CustomElevatedButtom(
-                title: "Calcular", 
+                title: "Calcular",
                 onPressed: () {
                   if (_weightController.text.isNotEmpty &&
                       _heightController.text.isNotEmpty) {
                     setState(() {
                       _imc = _calculateImc(
-                          double.parse(_weightController.text.replaceAll(',', '.')),
-                          double.parse(_heightController.text.replaceAll(',', '.')));
+                          double.parse(
+                              _weightController.text.replaceAll(',', '.')),
+                          double.parse(
+                              _heightController.text.replaceAll(',', '.')));
                       _getCategoryByImc(_imc!);
                     });
                     showDialog(
@@ -105,19 +112,19 @@ class ImcCalculatorState extends State<ImcCalculator> {
                       barrierDismissible: false,
                       builder: (BuildContext context) {
                         return CustomAlertDialog(
-                          title: "Seu Índice de Massa Corporal (IMC)", 
-                          imcResult: _imc!, 
+                          title: "Seu Índice de Massa Corporal (IMC)",
+                          imcResult: _imc!,
                           infoTextImc: _infoTextImc!,
                         );
-                    },
-                  );
-                }
-              },
-            )
-          ],
+                      },
+                    );
+                  }
+                },
+              )
+            ],
+          ),
         ),
       ),
-    ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh),
         tooltip: "Limpar campos",
