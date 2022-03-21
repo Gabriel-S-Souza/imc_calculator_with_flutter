@@ -1,4 +1,5 @@
 import 'package:calculadora_de_imc/contents/text_contents.dart';
+import 'package:calculadora_de_imc/widgets/custom_left_border_text.dart';
 import 'package:flutter/material.dart';
 
 class ImcInfoPage extends StatefulWidget {
@@ -29,26 +30,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                 ),
               ),
               //TODO: Otimizar esse conteiner que se repete
-              Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    left: BorderSide(
-                      color: Colors.deepPurple[200]!,
-                      width: 4,
-                    ))
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Text(
-                    getTextContents("subtitle"),
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[800],
-                    ),
-                  ),
-                ),
-              ),
+             CustomLeftBorderText(text: getTextContents("subtitle")),
               Padding(
                 padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
