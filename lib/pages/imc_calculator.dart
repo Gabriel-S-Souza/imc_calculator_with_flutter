@@ -39,16 +39,12 @@ class ImcCalculatorState extends State<ImcCalculator> {
 
     for (var i = 0; i < category.length; i++) {
       if (imc >= smallerLimitNumber) {
-        if (smallerLimitNumber == 39.99)  {
-          _infoTextImc = category[i]; 
-          break;
-        } else if (imc < limitNumbers[i]) {
+        } if (smallerLimitNumber == 39.99 || imc < limitNumbers[i]) {
           _infoTextImc = category[i];
           break;
         }
         else {
         smallerLimitNumber = limitNumbers[i];
-        }
       }
     }
   }
