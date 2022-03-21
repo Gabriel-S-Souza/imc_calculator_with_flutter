@@ -30,7 +30,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                 ),
               ),
               //TODO: Otimizar esse conteiner que se repete
-             CustomLeftBorderText(text: getTextContents("subtitle")),
+            CustomLeftBorderText(text: getTextContents("subtitle")),
               Padding(
                 padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
@@ -49,26 +49,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                   ),
                 ),
               ),
-               Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    left: BorderSide(
-                      color: Colors.deepPurple[200]!,
-                      width: 4,
-                    ))
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Text(
-                    getTextContents("secondFragment"),
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[800],
-                    ),
-                  ),
-                ),
-              ),
+              CustomLeftBorderText(text: getTextContents("secondFragment")),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 28),
                 child: Text(
