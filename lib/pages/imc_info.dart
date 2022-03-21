@@ -5,8 +5,10 @@ import 'package:calculadora_de_imc/widgets/custom_paragraph.dart';
 import 'package:calculadora_de_imc/widgets/custom_title.dart';
 import 'package:flutter/material.dart';
 
+final textContents = TextContents();
+
 class ImcInfoPage extends StatefulWidget {
-  const ImcInfoPage({ Key? key }) : super(key: key);
+  const ImcInfoPage({Key? key}) : super(key: key);
 
   @override
   State<ImcInfoPage> createState() => _ImcInfoPageState();
@@ -23,13 +25,13 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               const CustomTitle(text: "O Índice de Massa Corporal (IMC)"),
-              CustomLeftBorderText(text: getTextContents("subtitle")),
+              CustomLeftBorderText(text: textContents.subtitle),
               const CustomImage(path: "assets/images/exercicio-fisico.jpg"),
-              CustomParagraph(text: getTextContents("firstFragment")),
-              CustomLeftBorderText(text: getTextContents("secondFragment")),
-              CustomParagraph(text: getTextContents("thirdFragment")),
+              CustomParagraph(text: textContents.firstFragment),
+              CustomLeftBorderText(text: textContents.secondFragment),
+              CustomParagraph(text: textContents.thirdFragment),
               const CustomImage(path: "assets/images/tabela-imc.jpg"),
-              CustomParagraph(text: getTextContents("fourthFragment")),
+              CustomParagraph(text: textContents.fourthFragment),
             ],
           ),
         ),
