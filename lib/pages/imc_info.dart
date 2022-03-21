@@ -1,5 +1,6 @@
 import 'package:calculadora_de_imc/contents/text_contents.dart';
 import 'package:calculadora_de_imc/widgets/custom_left_border_text.dart';
+import 'package:calculadora_de_imc/widgets/custom_title.dart';
 import 'package:flutter/material.dart';
 
 class ImcInfoPage extends StatefulWidget {
@@ -19,18 +20,8 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 24),
-                child: Text(
-                  "O Índice de Massa Corporal (IMC)",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              //TODO: Otimizar esse conteiner que se repete
-            CustomLeftBorderText(text: getTextContents("subtitle")),
+              const CustomTitle(text: "O Índice de Massa Corporal (IMC)"),
+              CustomLeftBorderText(text: getTextContents("subtitle")),
               Padding(
                 padding: const EdgeInsets.only(top: 28, bottom: 28),
                 child: Image.asset(
