@@ -1,4 +1,5 @@
 import 'package:calculadora_de_imc/contents/text_contents.dart';
+import 'package:calculadora_de_imc/widgets/custom_image.dart';
 import 'package:calculadora_de_imc/widgets/custom_left_border_text.dart';
 import 'package:calculadora_de_imc/widgets/custom_title.dart';
 import 'package:flutter/material.dart';
@@ -22,13 +23,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
             children: [
               const CustomTitle(text: "O Índice de Massa Corporal (IMC)"),
               CustomLeftBorderText(text: getTextContents("subtitle")),
-              Padding(
-                padding: const EdgeInsets.only(top: 28, bottom: 28),
-                child: Image.asset(
-                  "assets/images/exercicio-fisico.jpg",
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
+              const CustomImage(path: "assets/images/exercicio-fisico.jpg"),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
                 child: Text(
@@ -52,13 +47,7 @@ class _ImcInfoPageState extends State<ImcInfoPage> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 28, bottom: 28),
-                child: Image.asset(
-                  "assets/images/tabela-imc.jpg",
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
+              const CustomImage(path: "assets/images/tabela-imc.jpg"),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
                 child: Text(
