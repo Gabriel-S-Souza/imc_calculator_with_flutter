@@ -12,11 +12,10 @@ class CustomLeftBorderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 14, bottom: 14),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           border: Border(
               left: BorderSide(
-          //TODO: Descomentar ou apagar a cor deste paragrafo
-        // color: Colors.deepPurple[200]!,
+        color: Color.fromRGBO(83, 109, 254, 100),
         width: 4,
       ))),
       child: Padding(
@@ -24,9 +23,9 @@ class CustomLeftBorderText extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.justify,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
-            color: Colors.grey[800],
+            color: Color.fromRGBO(0, 0, 0, 86),
           ),
         ),
       ),
