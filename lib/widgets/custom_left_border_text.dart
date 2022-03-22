@@ -15,7 +15,8 @@ class CustomLeftBorderText extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border(
               left: BorderSide(
-        color: Colors.deepPurple[200]!,
+          //TODO: Descomentar ou apagar a cor deste paragrafo
+        // color: Colors.deepPurple[200]!,
         width: 4,
       ))),
       child: Padding(

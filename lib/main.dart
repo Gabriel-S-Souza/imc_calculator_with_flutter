@@ -2,8 +2,18 @@ import 'package:calculadora_de_imc/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: HomePage(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.green),
+      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }

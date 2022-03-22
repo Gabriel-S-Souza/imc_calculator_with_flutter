@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Calculadora de IMC"),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: PageView(
         controller: pageController,
