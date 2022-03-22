@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Calculadora de IMC"),
         centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: PageView(
         controller: pageController,
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPage,
-        backgroundColor: Colors.deepPurple[50],
+        // backgroundColor: Colors.deepPurple[50],
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.calculate), label: "Calcular IMC", tooltip: "Calculadora de IMC"),

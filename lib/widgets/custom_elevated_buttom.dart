@@ -16,7 +16,6 @@ class CustomElevatedButtom extends StatelessWidget {
       height: 48,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.deepPurpleAccent,
         ),
         child: Text(
           title,

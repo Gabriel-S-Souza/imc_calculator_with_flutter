@@ -19,7 +19,6 @@ class CustomAlertDialog extends StatelessWidget {
         title,
         textAlign: TextAlign.center,
         style: const TextStyle(
-          color: Colors.black,
           fontSize: 18,
         ),
       ),
@@ -32,7 +31,6 @@ class CustomAlertDialog extends StatelessWidget {
               "$imcResult",
               style: const TextStyle(
                 // color: Color(0xFF1B998B),
-                color: Colors.deepPurpleAccent,
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
@@ -56,7 +54,6 @@ class CustomAlertDialog extends StatelessWidget {
             "OK",
           ),
           style: ElevatedButton.styleFrom(
-            primary: Colors.deepPurpleAccent, //cor do fundo
             // onPrimary:
           ),
         ),

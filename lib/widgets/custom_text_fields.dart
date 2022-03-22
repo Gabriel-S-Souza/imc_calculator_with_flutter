@@ -23,7 +23,6 @@ class CustomTextField extends StatelessWidget {
             border: const OutlineInputBorder(),
             labelText: label,
             labelStyle: const TextStyle(
-              color: Colors.deepPurple,
             )),
         keyboardType: TextInputType.number,
       ),
