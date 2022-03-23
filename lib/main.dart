@@ -21,12 +21,6 @@ class MyApp extends StatelessWidget {
           secondary: Colors.indigoAccent,
           outline: const Color.fromRGBO(83, 109, 254, 88),
         ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: ButtonStyle(
-            side: MaterialStateProperty.all(const BorderSide(
-            )),
-          )
-        ),
         textTheme: TextTheme(
           headline5: const TextStyle(
             fontWeight: FontWeight.w500,
