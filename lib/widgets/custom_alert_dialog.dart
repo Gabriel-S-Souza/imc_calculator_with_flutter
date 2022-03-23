@@ -22,21 +22,21 @@ class CustomAlertDialog extends StatelessWidget {
       ),
       content: SizedBox(
         height: (MediaQuery.of(context).size.height) / 8,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 14),
+              child: Text(
                 "$imcResult",
                 style: Theme.of(context).textTheme.headlineLarge
               ),
-              Text(
-                "\u{24D8} $infoTextImc",
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ],
-          ),
+            ),
+            Text(
+              "\u{24D8} $infoTextImc",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ],
         ),
       ),
       actions: [
