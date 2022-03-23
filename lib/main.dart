@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.indigo,
         ).copyWith(
           secondary: Colors.indigoAccent,
+          outline: const Color.fromRGBO(83, 109, 254, 88),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
