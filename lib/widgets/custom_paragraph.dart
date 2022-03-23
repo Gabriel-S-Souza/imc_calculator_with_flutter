@@ -15,12 +15,8 @@ class CustomParagraph extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.justify,
-        style: const TextStyle(
-          fontSize: 20,
-          //TODO: Descomentar ou apagar a cor deste paragrafo
-          // color: Colors.grey[800],
+        style: Theme.of(context).textTheme.bodyText1,
         ),
-      ),
-    );
+      );
   }
 }

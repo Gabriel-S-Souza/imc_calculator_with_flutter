@@ -14,10 +14,7 @@ class CustomTitle extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }

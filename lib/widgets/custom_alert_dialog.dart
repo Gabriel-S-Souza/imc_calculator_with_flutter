@@ -18,44 +18,33 @@ class CustomAlertDialog extends StatelessWidget {
       title: Text(
         title,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 18,
-        ),
+        style: Theme.of(context).textTheme.titleMedium
       ),
       content: SizedBox(
         height: (MediaQuery.of(context).size.height) / 8,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "$imcResult",
-              style: const TextStyle(
-                // color: Color(0xFF1B998B),
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headlineLarge
             ),
             Text(
               "\u{24D8} $infoTextImc",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
       ),
       actions: [
-        ElevatedButton(
+        OutlinedButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           child: const Text(
             "OK",
           ),
-          style: ElevatedButton.styleFrom(
-            // onPrimary:
-          ),
+          style: Theme.of(context).outlinedButtonTheme.style,
         ),
       ],
     );

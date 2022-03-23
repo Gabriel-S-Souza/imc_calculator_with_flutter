@@ -13,7 +13,7 @@ class CustomLeftBorderText extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 14, bottom: 14),
       decoration: const BoxDecoration(
-          border: Border(
+        border: Border(
               left: BorderSide(
         color: Color.fromRGBO(83, 109, 254, 100),
         width: 4,
@@ -23,10 +23,11 @@ class CustomLeftBorderText extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.justify,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color.fromRGBO(0, 0, 0, 86),
-          ),
+          style: Theme.of(context).textTheme.bodyText2,
+          // style: const TextStyle(
+          //   fontSize: 16,
+          //   color: Color.fromRGBO(0, 0, 0, 86),
+          // ),
         ),
       ),
     );
