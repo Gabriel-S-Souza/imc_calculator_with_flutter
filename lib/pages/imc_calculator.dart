@@ -119,7 +119,7 @@ class ImcCalculatorState extends State<ImcCalculator> {
                       barrierDismissible: false,
                       builder: (BuildContext context) {
                         return CustomAlertDialog(
-                          title: "Seu Índice de Massa Corporal (IMC)",
+                          title: "Seu Índice de Massa Corporal (IMC):",
                           imcResult: _imc!,
                           infoTextImc: _infoTextImc!,
                         );
