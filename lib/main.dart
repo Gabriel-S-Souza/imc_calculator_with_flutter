@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Calculadora de IMC",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.indigo,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurpleAccent,
         ).copyWith(
-          secondary: Colors.indigoAccent,
-          outline: const Color.fromRGBO(83, 109, 254, 88),
+          secondary: Colors.deepPurple,
+          outline: const Color.fromRGBO(124, 77, 255, 120),
         ),
         textTheme: TextTheme(
           headline5: const TextStyle(
@@ -32,11 +32,11 @@ class MyApp extends StatelessWidget {
             color: Colors.grey[700],
           ),
           button: const TextStyle(
-            color: Colors.indigoAccent,
+            color: Colors.deepPurpleAccent,
             fontWeight: FontWeight.bold,
           ),
           headlineLarge: const TextStyle(
-            color: Colors.indigo,
+            color: Colors.deepPurpleAccent,
             fontWeight: FontWeight.bold,
           ),          
         )
