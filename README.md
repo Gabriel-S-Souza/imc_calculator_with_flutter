@@ -7,5 +7,5 @@ Esta aplicação possui duas telas, uma onde é calculado o IMC e exibido atrav�
 
 ## Instalação do App
 
-Para pegar e instalar o App em seu smartphone, abra a seção "Releases" aqui no github e clique em "app-release.apk" para fazer o Download.
+Para pegar e instalar o App em seu smartphone, abra a seção "Releases" aqui no github e clique em "app-release.apk" para fazer o download.
 Após isso é só instalar o apk clicando sobre ele.
