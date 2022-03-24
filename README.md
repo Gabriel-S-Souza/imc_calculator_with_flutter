@@ -3,7 +3,7 @@
 Uma simples e bonita Calculadora de IMC.
 Esta aplicação possui duas telas, uma onde é calculado o IMC e outra que traz mais informações sobre o índice.
 
-![imc-calc](https://user-images.githubusercontent.com/94877176/159941875-bb3f1b76-64bb-4611-af53-7b3fb3979d0d.jpeg)
+![imc-calc](https://user-images.githubusercontent.com/94877176/159943910-17316303-9f70-4a70-bec5-fdb77aa12693.png)
 
 ## Instalação do App
 
