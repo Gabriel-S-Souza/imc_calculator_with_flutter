@@ -69,13 +69,10 @@ class ImcCalculatorState extends State<ImcCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        //Adiciona um Widget com o padding especificado e insere o Column como filho
         padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
         child: SizedBox(
           height: (MediaQuery.of(context).size.height) / 1.5,
           child: Column(
-            //Essa configuração abaixo faz com que todos os filhos sejam
-            //esticados até os limites do pai no eixo cruzado:
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[

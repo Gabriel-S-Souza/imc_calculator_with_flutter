@@ -58,7 +58,6 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPage,
-        // backgroundColor: Colors.deepPurple[50],
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.calculate),
