@@ -1,16 +1,9 @@
-# calculadora_de_imc
+# Calculadora de IMC
 
-A new Flutter project.
+Uma simples e bonita Calculadora de IMC.
+Esta aplicação possui duas telas, uma onde é calculado o IMC e outra que traz mais informações sobre o índice.
 
-## Getting Started
+## Instalação do App
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para pegar e instalar o App em seu smartphone, abra a seção "Releases" aqui no github e clique em "app-release.apk" para fazer o Download.
+Após isso é só instalar o apk clicando sobre ele.
